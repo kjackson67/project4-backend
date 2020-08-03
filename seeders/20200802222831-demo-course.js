@@ -16,7 +16,7 @@ module.exports = {
           name: "Glynns Creek",
           location: "Scott County Park, IA",
           par: 72,
-          img: "https://www.google.com/search?q=glynns+creek+golf+course+images&safe=active&sxsrf=ALeKk016UXtiwb0nGIB3an0if3JQnJJpZA:1596430193775&tbm=isch&source=iu&ictx=1&fir=Z6y2n4cy6rO9sM%252CeSYX7nZclyCOtM%252C_&vet=1&usg=AI4_-kTdCCexZSbXtZ2Tl6ztfHLtl0FX5Q&sa=X&ved=2ahUKEwj95O70nf7qAhUNTKwKHRVKC_QQ9QEwCHoECAoQIA#imgrc=Z6y2n4cy6rO9sM",
+          img: "https://www.golfcourseranking.com/pics/1951259107.jpg",
           userId: 2,
         },
         {
@@ -51,5 +51,5 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
+  },
 };
