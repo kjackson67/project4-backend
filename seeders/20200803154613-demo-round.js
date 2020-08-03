@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -8,7 +8,8 @@ module.exports = {
         name: "Korby Jackson",
         courseName: "TPC Deere Run",
         userId: 1,
-        date: 2020-08-03,
+        // date: new Date(2020,07,03),
+        date: "2020-08-03",
         score: 90,
       },
     ],
