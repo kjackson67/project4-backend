@@ -21,23 +21,23 @@ router.get("/profile/:id", (req, res) => {
 });
 
  // SIGNUP //
- router.get("/signup", (req, res) => {
-  res.render("players/signup.ejs");
-});
+//  router.get("/signup", (req, res) => {
+//   res.render("players/signup.ejs");
+// });
 
-router.post("/login", (req, res) => {
-  UserrModel.findOne({ where: {username: req.body.username, password: req.body.password,
-  } }).then((logInUser) => {
-      res.redirect(`/users/profile/${logInUser.id}`);
-  })
-  .catch((err) => {
-      res.redirect("/users");
-  });
-});
+// router.post("/login", (req, res) => {
+//   UserrModel.findOne({ where: {username: req.body.username, password: req.body.password,
+//   } }).then((logInUser) => {
+//       res.redirect(`/users/profile/${logInUser.id}`);
+//   })
+//   .catch((err) => {
+//       res.redirect("/users");
+//   });
+// });
 
 // UPDATE PROFILE - SEQUELIZE(.PUT) //
 router.put("/profile/:id", (req, res) => {
-  UserModel.update(req.body, {where: {id: req.params.id } }).then(() => {
+  UserModel.update(req.body, {where: { id: req.params.id } }).then(() => {
     res.redirect(`/users/profile/${req.params.id}`);
   });
 });
@@ -46,7 +46,7 @@ router.put("/profile/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   UserModel.destroy({ where: { id: req.params.id } }).then(() => {
     res.redirect("/");
-  })
+  });
 });
 
 module.exports = router;
