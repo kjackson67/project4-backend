@@ -3,6 +3,7 @@ const router = express.Router();
 
 const UserModel = require("../models").User;
 const CourseModel = require("../models").Course;
+const RoundModel = require("../models").Round;
 
 // GET USERS PROFILE
 router.get("/profile/:id", (req, res) => {

@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-     await queryInterface.renameColumn('Rounds', "courseId", "courseName");
+     await queryInterface.renameColumn("Rounds", "courseId", "courseName");
   },
 
   down: async (queryInterface, Sequelize) => {

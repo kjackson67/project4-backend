@@ -7,13 +7,13 @@ const UserModel = require("../models").User;
 const RoundModel = require("../models").Round;
 
      //  NEW ROUTE - EMPTY FORM   // 
-outer.get("/new", (req, res) => {
+router.get("/new", (req, res) => {
     res.render("new.ejs");
 });
 
 // Index = Render/Get all courses //
 router.get("/", (req, res) => {
-    CourseModel.findAll().then((courses) => {                   // *** // CourseModel.findAll().then((allCourseFromDB) => {
+    CourseModel.findAll().then((courses) => {                 // *** // CourseModel.findAll().then((allCourseFromDB) => {
         res.render("index.ejs", {
         courses: courses                                        
         });
