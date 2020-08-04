@@ -37,14 +37,16 @@ router.post("/login", (req, res) => {
 
 // UPDATE PROFILE - SEQUELIZE(.PUT) //
 router.put("/profile/:id", (req, res) => {
-  UserModel.update(req.body, {where: {id: req.params.id } }).then(() =>
-  res.redirect(`/users/profile/${req.params.id}`));
+  UserModel.update(req.body, {where: {id: req.params.id } }).then(() => {
+    res.redirect(`/users/profile/${req.params.id}`);
+  });
 });
 
 // DELETE USER ROUTE/PROFILE //
 router.delete("/:id", (req, res) => {
-  UserModel.destroy({where: {id: req.params.id}})
-  res.redirect("/users");
-  });
+  UserModel.destroy({ where: { id: req.params.id } }).then(() => {
+    res.redirect("/");
+  })
+});
 
 module.exports = router;
