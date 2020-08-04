@@ -58,6 +58,14 @@ Total	H	6hrs	5hrs	5hrs
 Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc.
 
 ** Code Snippet **
+1. date: {
+        type: Sequelize.DATEONLY
+      },
+   date: new Date(2020,07,03),
+ OR  date: "2020-08-03",
+
+
+
 Use this section to include a brief code snippet of functionality that you are proud of an a brief description. Code snippet should not be greater than 10 lines of code.
 
 function reverse(string) {
@@ -65,6 +73,15 @@ function reverse(string) {
 }
 
 ** Issues and Resolutions **
+1. ERROR: null value in column "createdAt" violates not-null constrain
+   RESOLUTION:  Changed my migration create-round.js to
+date: {
+type: Sequelize.DATEONLY }, and then needed to change seeder-demo-round date integer to // date: new Date(2020,07,03), or date: "2020-08-03",
+2. ERROR: column "userId" of relation "Courses" does not exist
+   RESOLUTION:  added userId column manually in pgAdmin, should have used npx migrate from "add" userId instead. So I dropped entire db and re-ran createdb 'project_name' in terminal. I also utilized mirgration generate --name rename-courseid to coursename -- Needed to refer back to lessons from class
+
+
+
 Use this section to list of all major issues encountered and their resolution.
 SAMPLE.....
 ERROR: app.js:34 Uncaught SyntaxError: Unexpected identifier

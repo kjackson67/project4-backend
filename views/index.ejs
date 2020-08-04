@@ -8,15 +8,15 @@
     <body>
         <h1>Project 2 Home Page</h1>
         <nav>
-            <a href="/fruits/new">Enter a New Course</a>
+            <a href="/course/new">Enter a New Course</a>
         </nav>
         <ul>
             <% for(let i=0; i<courses.length; i++) { %>
             <li>
-                <a href="/fruits/<%=courses[i].id%>"> <%=courses[i].name%> </a>
+                <a href="/course/<%=courses[i].id%>"> <%=courses[i].name%> </a>
                     <!--  ADD DELETE FORM HERE-->
                 <form action="/courses/<%=courses[i].id; %>?_method=DELETE" method="POST">
-				<input type="submit" value="DELETE Fruit"/>
+				<input type="submit" value="DELETE Course"/>
             </form>
                     <!-- Add edit link here  -->
                 <a href="/courses/<%=courses[i].id %>/edit">Edit</a>
