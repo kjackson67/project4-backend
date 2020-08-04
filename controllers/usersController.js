@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const UserModel = require("../models").User;
-const CourseModel = reuire("../models").Course;
+const CourseModel = require("../models").Course;
 
 // GET USERS PROFILE
 router.get("/profile/:id", (req, res) => {
