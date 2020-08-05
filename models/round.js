@@ -10,12 +10,17 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Round.belongsToMany(models.User, {
+        through: "UserCourse",
+        foreignKey: "userId",
+        otherKey: "name",
+      });
     }
   };
+  // define association here
   Round.init({
     name: DataTypes.STRING,
-    courseId: DataTypes.STRING,
+    courseName: DataTypes.STRING,
     userId: DataTypes.STRING,
     date: DataTypes.INTEGER,
     score: DataTypes.INTEGER
