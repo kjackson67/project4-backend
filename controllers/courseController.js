@@ -4,7 +4,7 @@ const router = express.Router();
 
 // Add model //
 const CourseModel = require("../models").Course;
-const UserModel = require("../models").User;
+const PlayerModel = require("../models").Player;
 const RoundModel = require("../models").Round;
 
      //  NEW ROUTE - EMPTY FORM   // 
@@ -24,14 +24,14 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
     CourseModel.findByPk(req.params.id, {
         include: [{
-            model: User,
+            model: Player,
             attributes: ["name"],
         },
         {
             model: Round,
         },
         ],
-            attributes: ["name", "location", "par", "img", "userId"]
+            attributes: ["name", "location", "par"]
     })
     .then((course) => {
         console.log(course)
