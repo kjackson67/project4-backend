@@ -12,7 +12,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      courseId: {
+      courseName: {
         type: Sequelize.STRING
       },
       userId: {
