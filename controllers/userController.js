@@ -22,19 +22,19 @@ router.get("/profile/:id", (req, res) => {
   });
 
    // SIGNUP //
-//  router.get("/signup", (req, res) => {
-//   res.render("players/signup.ejs");
-// });
+ router.get("/signup", (req, res) => {
+  res.render("users/signup.ejs");
+});
 
-// router.post("/login", (req, res) => {
-//   UserrModel.findOne({ where: {username: req.body.username, password: req.body.password,
-//   } }).then((logInUser) => {
-//       res.redirect(`/users/profile/${logInUser.id}`);
-//   })
-//   .catch((err) => {
-//       res.redirect("/users");
-//   });
-// });
+router.post("/login", (req, res) => {
+  UserrModel.findOne({ where: {username: req.body.username, password: req.body.password,
+  } }).then((logInUser) => {
+      res.redirect(`/users/profile/${logInUser.id}`);
+  })
+  .catch((err) => {
+      res.redirect("/users");
+  });
+});
 
 
   // UPDATE PROFILE - SEQUELIZE(.PUT) //

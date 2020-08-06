@@ -26,11 +26,7 @@ router.get("/:id", (req, res) => {
             model: User,
             attributes: ["name"],
         },
-        {
-            model: Round,
-        },
         ],
-            attributes: ["courseName", "location", "par",]
     })
     .then((course) => {
         console.log(course)
@@ -47,7 +43,6 @@ router.post("/", (req, res) => {                                    // if (req.b
     });                                                             // }
 });
 
-        
 
 //  NEW ROUTE - EMPTY FORM   // 
 router.get("/new", (req, res) => {
