@@ -14,10 +14,10 @@
 		Par:
         <input type="text" name="par" value="<%=course.par%>"/><br>
 		<select name="course">
-			<% for ( let i = 0; i < courses.length; i++ ) { let selected = ( i == 0
+			<% for ( let i = 0; i < course.length; i++ ) { let selected = ( i == 0
 			) ? "selected" : ""; %>
-			<option value="<%=courses[i].id%>" selected
-			  ><%=courses[i].name%>
+			<option value="<%=course[i].id%>" selected
+			  ><%=course[i].name%>
 			</option>
 			<% } %>
 		  </select>
