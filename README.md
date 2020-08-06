@@ -79,7 +79,6 @@ date: {
 type: Sequelize.DATEONLY }, and then needed to change seeder-demo-round date integer to // date: new Date(2020,07,03), or date: "2020-08-03",
 2. ERROR: column "userId" of relation "Courses" does not exist
    RESOLUTION:  added userId column manually in pgAdmin, should have used npx migrate from "add" userId instead. So I dropped entire db and re-ran createdb 'project_name' in terminal. I also utilized mirgration generate --name rename-courseid to coursename -- Needed to refer back to lessons from class
-3. Get ERROR: Cannot GET /users... but player is deleted from pgAdmin table
 
 
 
