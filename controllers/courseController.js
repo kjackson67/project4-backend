@@ -13,9 +13,9 @@ router.get("/new", (req, res) => {
 
 // Index = Render/Get all courses //
 router.get("/", (req, res) => {
-    CourseModel.findAll().then((courses) => {                 // *** // CourseModel.findAll().then((allCourseFromDB) => {
+    CourseModel.findAll().then((allCourseFromDB) => {                 // *** // CourseModel.findAll().then((allCourseFromDB) => {
         res.render("index.ejs", {
-        courses: courses                                        
+        courses: allCourseFromDB,                                        
         });
     });
 });
@@ -51,17 +51,19 @@ router.get("/new", (req, res) => {
 
 
 router.get("/:id/edit", function (req, res) {
-    CourseModel.findByPk(req.params.id).then((foundCourse) => {
+    CourseModel.findByPk(req.params.id).then((courseToEdit) => {
       res.render("edit.ejs", {                                            // RoundModel.findAll().then((allRounds) => {
-        course: foundCourse,
+        course: courseToEdit,
         });
     });                                          
 });
                 
 
 router.put('/:id', (req, res) => {
-    CourseModel.update(req.body, { where: { id: req.params.id } })
-  .then((updatedCourse) => {
+    CourseModel.update(req.body, { where: { id: req.params.id },
+    returning: true, 
+}).then((updatedCourse) => {
+    console.log(updatedCourse);
         res.redirect("/courses");
         }
     );
