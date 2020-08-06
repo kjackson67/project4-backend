@@ -4,7 +4,7 @@ const router = express.Router();
 // Add model //
 const CourseModel = require("../models").Course;
 const UserModel = require("../models").User;
-const RoundModel = require("../models").Round;
+// const RoundModel = require("../models").Round;
 
      //  NEW ROUTE - EMPTY FORM   // 
 router.get("/new", (req, res) => {
@@ -30,7 +30,7 @@ router.get("/:id", (req, res) => {
             model: Round,
         },
         ],
-            attributes: ["name", "location", "par", "img", "userId"]
+            attributes: ["courseName", "location", "par",]
     })
     .then((course) => {
         console.log(course)
@@ -57,14 +57,12 @@ router.get("/new", (req, res) => {
 
 router.get("/:id/edit", function (req, res) {
     CourseModel.findByPk(req.params.id).then((foundCourse) => {
-         RoundModel.findAll().then((allRounds) => {                  // RoundModel.findAll().then((allRounds) => {
-            res.render("edit.ejs", {
-                course: foundCourse,
-                round: allRounds,
-            });
-        });                                          
-    });
+      res.render("edit.ejs", {                                            // RoundModel.findAll().then((allRounds) => {
+        course: foundCourse,
+        });
+    });                                          
 });
+                
 
 router.put('/:id', (req, res) => {
     CourseModel.update(req.body, { where: { id: req.params.id } })
