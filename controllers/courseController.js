@@ -1,4 +1,5 @@
 const express = require("express");
+const db = require("../models");
 const router = express.Router();
 
 // Add model //
@@ -23,7 +24,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
     CourseModel.findByPk(req.params.id, {
         include: [{
-            model: User,
+            model: Player,
             attributes: ["name"],
         },
         ],

@@ -17,6 +17,8 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   };
+        // define association here
+
   Course.init({
     courseName: DataTypes.STRING,
     location: DataTypes.STRING,

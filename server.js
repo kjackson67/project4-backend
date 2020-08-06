@@ -15,9 +15,9 @@ const verifyToken = (req, res, next) => {
     if (err || !decodedUser) {
       return res.status(401).json({ error: "Unauthorized Request" });
     }
-    req.user = decodedUser;
+    req.player = decodedPlayer;
     // ADDS A .user PROP TO REQ FOR TOKEN USER
-    console.log(decodedUser);
+    console.log(decodedPlayer);
 
     next();
   });
@@ -29,7 +29,7 @@ app.use(express.static("public"));
 
 // HOMEPAGE
 app.get("/", (req, res) => {
-  res.render("users/index.ejs");
+  res.render("players/index.ejs");
 });
 
 app.use("/auth", require("./controllers/authController.js"));
