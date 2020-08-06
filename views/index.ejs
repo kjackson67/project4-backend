@@ -11,15 +11,15 @@
             <a href="/course/new">Enter a New Course</a>
         </nav>
         <ul>
-            <% for(let i=0; i<courses.length; i++) { %>
+            <% for(let i=0; i<course.length; i++) { %>
             <li>
-                <a href="/course/<%=courses[i].id%>"> <%=courses[i].name%> </a>
+                <a href="/course/<%=course[i].id%>"> <%=course[i].name%> </a>
                     <!--  ADD DELETE FORM HERE-->
-                <form action="/courses/<%=courses[i].id; %>?_method=DELETE" method="POST">
+                <form action="/courses/<%=course[i].id; %>?_method=DELETE" method="POST">
 				<input type="submit" value="DELETE Course"/>
             </form>
                     <!-- Add edit link here  -->
-                <a href="/courses/<%=courses[i].id %>/edit">Edit</a>
+                <a href="/courses/<%=course[i].id %>/edit">Edit</a>
             </li>
                 <% } %>
             </ul>

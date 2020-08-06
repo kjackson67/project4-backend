@@ -29,9 +29,9 @@
     <br /><br />
     <a href="/courses">View All Courses</a>
     <h3>Courses added by you:</h3>
-    <% for (let i = 0; i < user.Course.length; i++){ %>
+    <% for (let i = 0; i < user.Courses.length; i++){ %>
       <li>
-         <a href="/courses/<%=user.Course[i].id%>"><%=user.Course[i].name%></a>
+         <a href="/courses/<%=user.Courses[i].id%>"><%=user.Courses[i].courseName%></a>
       </li>
       <br>
 <% } %>

@@ -22,14 +22,14 @@ const verifyToken = (req, res, next) => {
     next();
   });
 };
-
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
 // HOMEPAGE
 app.get("/", (req, res) => {
-  res.render("players/index.ejs");
+  res.render("users/index.ejs");
 });
 
 app.use("/auth", require("./controllers/authController.js"));

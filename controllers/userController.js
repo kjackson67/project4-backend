@@ -11,7 +11,7 @@ router.get("/profile/:id", (req, res) => {
       include: [
         {
           model: CourseModel,
-          attributes: ["id", "CourseName"],
+          attributes: ["id", "courseName"],
         },
       ],
     }).then((userProfile) => {

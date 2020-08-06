@@ -8,7 +8,6 @@ module.exports = {
          name: "Tiger Woods",
          username: "GOAT",
          password: 1572,
-         userId: 1,
         },
       ],
     {}
