@@ -47,7 +47,7 @@ router.get("/:id/edit", function (req, res) {
 router.put('/:id', (req, res) => {
     CourseModel.update(req.body, { where: { id: req.params.id } })
   .then((updatedCourse) => {
-        res.redirect("/courses");
+        res.redirect("/course");
         }
     );
 });
@@ -55,7 +55,7 @@ router.put('/:id', (req, res) => {
 
 router.delete("/:id", (req, res) => {
     CourseModel.destroy({ where: { id: req.params.id } }).then(() => {
-      res.redirect("/courses");
+      res.redirect("/course");
     });
   });
   

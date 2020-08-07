@@ -8,7 +8,6 @@
   </head>
 
   <body>
-    <% if (err) { %> <%= err %> <% } %>
     <h1>Welcome to <%= user.name %>'s Profile Page</h1>
 
     <form action="/users/profile/<%=user.id%>?_method=PUT" method="POST">
@@ -31,7 +30,7 @@
     <br /><br />
     <a href="/course">View All Courses</a>
     <h3>Courses added by you:</h3>
-    <% for (let i = 0; i < user.Course.length; i++){ %>
+    <% for (let i = 0; i < user.Courses.length; i++){ %>
       <li>
          <%= user.Courses[i].courseName %></a>
       </li>

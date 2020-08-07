@@ -12,8 +12,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      name: {
-        type: Sequelize.STRING,
+      courseId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       createdAt: {
