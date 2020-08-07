@@ -8,7 +8,6 @@
   </head>
 
   <body>
-    <% if (err) { %> <%= err %> <% } %>
     <h1>Welcome to <%= user.name %>'s Profile Page</h1>
 
     <form action="/users/profile/<%=user.id%>?_method=PUT" method="POST">
