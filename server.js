@@ -15,21 +15,21 @@ const verifyToken = (req, res, next) => {
     if (err || !decodedUser) {
       return res.status(401).json({ error: "Unauthorized Request" });
     }
-    req.player = decodedPlayer;
+    req.user = decodedUser;
     // ADDS A .user PROP TO REQ FOR TOKEN USER
-    console.log(decodedPlayer);
+    console.log(decodedUser);
 
     next();
   });
 };
-
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
 // HOMEPAGE
 app.get("/", (req, res) => {
-  res.render("players/index.ejs");
+  res.render("users/index.ejs");
 });
 
 app.use("/auth", require("./controllers/authController.js"));
