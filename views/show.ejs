@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,11 +8,18 @@
   <body>
     <h1>Course Show Page</h1>
     <ul class="course"></ul>
-    <li><%= course.name %></li>
+    <li><%= course.courseName %></li>
     <form action="/course/<%= course.id %>?_method=DELETE" method="POST">
       <input type="submit" value="Delete" />
     </form>
     <a href="/course/<%= course.id %>/edit">Edit</a>
     <br /><br />
+    <h3>Users using this course</h3>
+    <% for (let i = 0; i < course.Users.length; i++){ %>
+      <li>
+         <%= course.Users[i].name %></a>
+      </li>
+      <br>
+<% } %>
   </body>
 </html>

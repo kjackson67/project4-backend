@@ -9,7 +9,7 @@ const UserModel = require("../models").User;
 router.get("/", (req, res) => {
     CourseModel.findAll().then((courses) => {                 // *** // CourseModel.findAll().then((allCourseFromDB) => {
         res.render("index.ejs", {
-        courses: courses                                        
+        course: courses                                        
         });
     });
 });
@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
     CourseModel.findByPk(req.params.id, {
         include: [{
-            model: User,
+            model: UserModel,
             attributes: ["name"],
         },
         ],
