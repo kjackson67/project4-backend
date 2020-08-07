@@ -6,24 +6,28 @@ module.exports = {
       "Courses",
       [
         {                           
-        courseName: "TPC Deere Run",
+          name: "TPC Deere Run",
           location: "Silvis, IL",
           par: 72,
+          courseId: 1,
       },
       {
-        courseName: "Glynns Creek",
+          name: "Glynns Creek",
           location: "Scott County Park, IA",
           par: 72,
+          courseId: 2,
       },
       {
-        courseName: "Palmer Hills",
+          name: "Palmer Hills",
           location: "Bettendorf, IA",
           par: 72,
+          CourseId: 3,
       },
       {
-        courseName: "Golfmohr",
+          name: "Golfmohr",
           location: "East Moline",
           par: 72,
+          courseId: 4,
         },
   ], {});
 },

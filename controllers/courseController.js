@@ -7,43 +7,55 @@ const UserModel = require("../models").User;
 
 
 router.get("/", (req, res) => {
-    CourseModel.findAll().then((allCoursesFromDB) => {
-      res.render("index.ejs", {
-        course: allCoursesFromDB,
-      });
+    CourseModel.findAll().then((courses) => {                 // *** // CourseModel.findAll().then((allCourseFromDB) => {
+        res.render("index.ejs", {
+        courses: courses                                        
+        });
+    });
+});
+
+router.get("/:id", (req, res) => {
+    CourseModel.findByPk(req.params.id, {
+        include: [{
+            model: User,
+            attributes: ["name"],
+        },
+        ],
+    })
+    .then((course) => {
+        console.log(course)
+        res.render("show.ejs", {
+            course: course,
+        });
     });
   });
   
   router.get("/new", (req, res) => {
     res.render("new.ejs");
   });
-  
-  router.post("/", (req, res) => {
-    CourseModel.create(req.body).then((newCourse) => {
-      res.redirect("/course");
-    });
-  });
-  
-  //show
-  router.get("/:id", (req, res) => {
-    CourseModel.findByPk(req.params.id).then((singleCourse) => {
-      res.render("show.ejs", {
-        course: singleCourse,
-      });
-    });
-  });
-  
-  router.delete("/:id", (req, res) => {
+
+
+router.get("/:id/edit", function (req, res) {
+    CourseModel.findByPk(req.params.id).then((foundCourse) => {
+      res.render("edit.ejs", {                                            // RoundModel.findAll().then((allRounds) => {
+        course: foundCourse,
+        });
+    });                                          
+});
+                
+
+router.put('/:id', (req, res) => {
+    CourseModel.update(req.body, { where: { id: req.params.id } })
+  .then((updatedCourse) => {
+        res.redirect("/courses");
+        }
+    );
+});
+
+
+router.delete("/:id", (req, res) => {
     CourseModel.destroy({ where: { id: req.params.id } }).then(() => {
-      res.redirect("/course");
-    });
-  });
-  
-  router.get("/:id/edit", (req, res) => {
-    CourseModel.findByPk(req.params.id).then((courseToEdit) => {
-      res.render("edit.ejs", {
-        course: courseToEdit,
-      });
+      res.redirect("/courses");
     });
   });
   

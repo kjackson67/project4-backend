@@ -39,34 +39,19 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/profile/:id", (req, res) => {
-    UserModel.findByPk(req.params.id, {
-      include: [
-        {
-          model: CourseModel,
-          attributes: ["id", "courseName"],
-        },
-      ],
-    }).then((userProfile) => {
-      res.render("users/profile.ejs", {
-        user: userProfile,
+      UserModel.findByPk(req.params.id, {
+        include: [
+          {
+            model: CourseModel,
+            attributes: ["id", "courseName"],
+          },
+        ],
+      }).then((userProfile) => {
+        res.render("users/profile.ejs", {
+          user: userProfile,
+        });
       });
     });
-  });
-
-// router.get("/profile/:id", (req, res) => {
-//       UserModel.findByPk(req.params.id, {
-        // include: [
-        //   {
-        //     model: CourseModel,
-        //     attributes: ["id", "courseName"],
-        //   },
-        // ],
-    //   }).then((userProfile) => {
-    //     res.render("users/profile.ejs", {
-    //       user: userProfile,
-    //     });
-    //   });
-    // });
 
   router.put("/profile/:id", (req, res) => {
     UserModel.update(req.body, {
@@ -101,6 +86,20 @@ router.get("/profile/:id", (req, res) => {
 
 
 // // GET USERS PROFILE
+// router.get("/profile/:id", (req, res) => {
+//     UserModel.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: CourseModel,
+//           attributes: ["id", "courseName"],
+//         },
+//       ],
+//     }).then((userProfile) => {
+//       res.render("users/profile.ejs", {
+//         user: userProfile,
+//       });
+//     });
+//   });
 
 //    // SIGNUP //
 // //  router.get("/signup", (req, res) => {
@@ -117,11 +116,6 @@ router.get("/profile/:id", (req, res) => {
 // //   });
 // // });
 
-// router.put("/profile/:id", (req, res) => {
-//   UserModel.update(req.body, {where: { id: req.params.id } }).then(() => {
-//     res.redirect(`/users/profile/${req.params.id}`);
-//   });
-// });
 
 //   // UPDATE PROFILE - SEQUELIZE(.PUT) //
 // router.put("/profile/:id", (req, res) => {

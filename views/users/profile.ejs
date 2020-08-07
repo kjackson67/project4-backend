@@ -8,6 +8,7 @@
   </head>
 
   <body>
+    <% if (err) { %> <%= err %> <% } %>
     <h1>Welcome to <%= user.name %>'s Profile Page</h1>
 
     <form action="/users/profile/<%=user.id%>?_method=PUT" method="POST">
@@ -18,7 +19,7 @@
       <br />
       <br />
       Password:
-      <input type="text" name="password" value="<%=user.password%>" />
+      <input type="password" name="password" value="<%=user.password%>" />
       <br />
       <br />
       <input type="submit" value="Edit Profile" />
@@ -30,7 +31,7 @@
     <br /><br />
     <a href="/course">View All Courses</a>
     <h3>Courses added by you:</h3>
-    <% for (let i = 0; i < user.Courses.length; i++){ %>
+    <% for (let i = 0; i < user.Course.length; i++){ %>
       <li>
          <%= user.Courses[i].courseName %></a>
       </li>
