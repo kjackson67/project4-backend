@@ -18,20 +18,21 @@
       <br />
       <br />
       Password:
-      <input type="password" name="password" value="<%=user.password%>" /><br />
+      <input type="password" name="password" value="<%=user.password%>" />
+      <br />
       <br />
       <input type="submit" value="Edit Profile" />
     </form>
     <br />
-    <form action="/users/<%=user.id %>?_method=DELETE" method="POST">
+    <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
       <input type="submit" value="Delete User" />
     </form>
     <br /><br />
-    <a href="/courses">View All Courses</a>
+    <a href="/course">View All Courses</a>
     <h3>Courses added by you:</h3>
     <% for (let i = 0; i < user.Courses.length; i++){ %>
       <li>
-         <a href="/courses/<%=user.Courses[i].id%>"><%=user.Courses[i].courseName%></a>
+         <%= user.Courses[i].courseName %></a>
       </li>
       <br>
 <% } %>

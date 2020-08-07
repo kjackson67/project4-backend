@@ -6,25 +6,22 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <h1>Project 2 Home Page</h1>
+        <h1>Course Page</h1>
         <a href="/course/new">Enter a New Course</a>
-        <nav>
-        </nav>
-        <ul>
+        <ul class="course">
             <% for(let i = 0; i < course.length; i++) { %>
-            <li>
-                <a href="/course/<%= course[i].id %>"> <%= course[i].courseName %> </a>
+                <li><a href="/course/<%= course[i].id%>"><%= course[i].courseName %></a></li>
                     <!--  ADD DELETE FORM HERE-->
                 <form action="/course/<%= course[i].id %>?_method=DELETE" method="POST">
-				<input type="submit" value="DELETE Course"/>
+				<input type="submit" value="Delete" />
             </form>
                     <!-- Add edit link here  -->
                 <a href="/course/<%= course[i].id %>/edit">Edit</a>
-            </li>
+                <br /><br />
                 <% } %>
             </ul>
-            <nav>
-                <!-- <a href="/fruits/new">Create a New Fruit</a> -->
-            </nav>
+            <!-- <nav>
+                <a href="/course/new">Create a New course</a>
+            </nav> -->
     </body>
 </html>
