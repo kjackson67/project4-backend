@@ -6,21 +6,21 @@ const CourseModel = require("../models").Course;
 // const RoundModel = require("../models").Round;
 
 router.get("/", (req, res) => {
-  res.render("user/index.ejs");
+  res.render("users/index.ejs");
 });
 
 router.get("/signup", (req, res) => {
-  res.render("user/signup.ejs");
+  res.render("users/signup.ejs");
 });
 
 router.post("/", (req, res) => {
   UserModel.create(req.body).then((newUser) => {
-    res.redirect(`/user/profile/${newUser.id}`);
+    res.redirect(`/users/profile/${newUser.id}`);
   });
 });
 
 router.get("/login", (req, res) => {
-  res.render("user/login.ejs");
+  res.render("users/login.ejs");
 });
 
 router.post("/login", (req, res) => {
@@ -31,19 +31,27 @@ router.post("/login", (req, res) => {
     },
   })
   .then((loggedInUser) => {
-    res.redirect(`/user/profile/${loggedInUser.id}`);
+    res.redirect(`/users/profile/${loggedInUser.id}`);
   })
   .catch((err) => {
-    res.redirect("/user");
+    res.redirect("/users");
   });
 });
 
 router.get("/profile/:id", (req, res) => {
-  UserModel.findByPk(req.params.id, {
-      res.render("user/profile.ejs", {
-      }),
+      UserModel.findByPk(req.params.id, {
+        include: [
+          {
+            model: CourseModel,
+            attributes: ["id", "courseName"],
+          },
+        ],
+      }).then((userProfile) => {
+        res.render("users/profile.ejs", {
+          user: userProfile,
+        });
+      });
     });
-  });
 
   router.put("/profile/:id", (req, res) => {
     UserModel.update(req.body, {
@@ -51,13 +59,13 @@ router.get("/profile/:id", (req, res) => {
       returning: true,
       plain: true,
     }).then((updatedUser) => {
-      res.redirect(`/user/profile/${req.params.id}`);
+      res.redirect(`/users/profile/${req.params.id}`);
     });
   });
 
   router.delete("/:id", (req, res) => {
     UserModel.destroy({ where: { id: req.params.id } }).then(() => {
-      res.redirect("/user");
+      res.redirect("/users");
     });
   });
   
@@ -76,7 +84,7 @@ router.get("/profile/:id", (req, res) => {
 
 
 
-  
+
 // // GET USERS PROFILE
 // router.get("/profile/:id", (req, res) => {
 //     UserModel.findByPk(req.params.id, {

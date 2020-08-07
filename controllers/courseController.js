@@ -2,96 +2,156 @@ const express = require("express");
 const db = require("../models");
 const router = express.Router();
 
-// Add model //
 const CourseModel = require("../models").Course;
 const UserModel = require("../models").User;
-// const RoundModel = require("../models").Round;
 
-// router.get("/:index", (req, res) => {
-//     console.log(req.params.index);
-//     res.render("show.ejs", {
-//     pokemon: pokemon[req.params.index],
-//     index: req.params.index
+
+router.get("/", (req, res) => {
+    CourseModel.findAll().then((allCoursesFromDB) => {
+      res.render("index.ejs", {
+        course: allCoursesFromDB,
+      });
+    });
+  });
+  
+  router.get("/new", (req, res) => {
+    res.render("new.ejs");
+  });
+  
+  router.post("/", (req, res) => {
+    CourseModel.create(req.body).then((newCourse) => {
+      res.redirect("/course");
+    });
+  });
+  
+  //show
+  router.get("/:id", (req, res) => {
+    CourseModel.findByPk(req.params.id).then((singleCourse) => {
+      res.render("show.ejs", {
+        course: singleCourse,
+      });
+    });
+  });
+  
+  router.delete("/:id", (req, res) => {
+    CourseModel.destroy({ where: { id: req.params.id } }).then(() => {
+      res.redirect("/course");
+    });
+  });
+  
+  router.get("/:id/edit", (req, res) => {
+    CourseModel.findByPk(req.params.id).then((courseToEdit) => {
+      res.render("edit.ejs", {
+        course: courseToEdit,
+      });
+    });
+  });
+  
+  router.put("/:id", (req, res) => {
+    CourseModel.update(req.body, {
+      where: { id: req.params.id },
+      returning: true,
+      plain: true,
+    }).then((updatedCourse) => {
+      console.log(updatedCourse);
+      res.redirect("/course");
+    });
+  });
+  
+  module.exports = router;
+
+
+
+// // Add model //
+// const CourseModel = require("../models").Course;
+// const UserModel = require("../models").User;
+// // const RoundModel = require("../models").Round;
+
+// // router.get("/:index", (req, res) => {
+// //     console.log(req.params.index);
+// //     res.render("show.ejs", {
+// //     course: course[req.params.index],
+// //     index: req.params.index
+// //     });
+// // });
+
+
+// // Index = Render/Get all courses //
+// router.get("/", (req, res) => {
+//     CourseModel.findAll().then((allCoursesFromDB) => {                 // *** // CourseModel.findAll().then((allCourseFromDB) => {
+//         res.render("index.ejs", {
+//         course: allCoursesFromDB,                                        
+//         });
+//     });
+// });
+
+//      //  NEW ROUTE - EMPTY FORM   // 
+//      router.get("/new", (req, res) => {
+//         res.render("new.ejs");
+//     });
+    
+//     // Create New "POST" Route - render "Create" W/SEQUELIZE  //
+// router.post("/", (req, res) => {                                    // if (req.body.readyToEat === "on") {
+//     CourseModel.create(req.body).then((newCourse) => {              //   req.body.readyToEat = true;
+//     res.redirect("/course");                                       //   req.body.readyToEat = false;
+//     });                                                             // }
+// });
+
+// router.put('/:id', (req, res) => {
+//     console.log(req.body);
+//     CourseModel.update(req.body, { where: { id: req.params.id },
+//     returning: true, 
+//     }).then((updatedCourse) => {
+//         User.findByPk(req.body.season).then((foundUser) => {
+//             Course.findByPk(req.params.id).then((foundCourse) => {
+//                 foundCourse.addCourse(foundUser);
+//                 res.redirect("/course");
+//             });
+//         });
+//     });
+// });
+
+// router.delete("/:id", (req, res) => {
+//     CourseModel.destroy({ where: { id: req.params.id } }).then(() => {
+//       res.redirect("/courses");
+//     });
+//   });
+
+//   router.get("/:id/edit", function (req, res) {
+//     CourseModel.findByPk(req.params.id).then((foundCourse) => {
+//         // User.findAll().then((allUsers) => {                                  // RoundModel.findAll().then((allRounds) => {
+//             res.render("edit.ejs", {
+//                 course: foundcourse,
+//                 // users: allUsers,
+//             });
+//         });
+//     });                                          
+// // });
+
+
+// router.get("/:id", (req, res) => {
+//     CourseModel.findByPk(req.params.id, {
+//         include: [{
+//             model: User,
+//             attributes: ["name"],
+//         },
+//         ],
+//     })
+//     .then((course) => {
+//         console.log(course)
+//         res.render("show.ejs", {
+//             course: course,
+//         });
 //     });
 // });
 
 
-// Index = Render/Get all courses //
-router.get("/", (req, res) => {
-    CourseModel.findAll().then((allCoursesFromDB) => {                 // *** // CourseModel.findAll().then((allCourseFromDB) => {
-        res.render("index.ejs", {
-        course: allCoursesFromDB,                                        
-        });
-    });
-});
+// //  NEW ROUTE - EMPTY FORM   // 
+// // router.get("/new", (req, res) => {
+// //     res.render("new.ejs");
+// //   });
 
-     //  NEW ROUTE - EMPTY FORM   // 
-     router.get("/new", (req, res) => {
-        res.render("new.ejs");
-    });
-    
-    // Create New "POST" Route - render "Create" W/SEQUELIZE  //
-router.post("/", (req, res) => {                                    // if (req.body.readyToEat === "on") {
-    CourseModel.create(req.body).then((newCourse) => {              //   req.body.readyToEat = true;
-    res.redirect("/course");                                       //   req.body.readyToEat = false;
-    });                                                             // }
-});
-
-router.put('/:id', (req, res) => {
-    console.log(req.body);
-    CourseModel.update(req.body, { where: { id: req.params.id },
-    returning: true, 
-    }).then((updatedCourse) => {
-        User.findByPk(req.body.season).then((foundUser) => {
-            Course.findByPk(req.params.id).then((foundCourse) => {
-                foundCourse.addCourse(foundUser);
-                res.redirect("/course");
-            });
-        });
-    });
-});
-
-router.delete("/:id", (req, res) => {
-    CourseModel.destroy({ where: { id: req.params.id } }).then(() => {
-      res.redirect("/courses");
-    });
-  });
-
-  router.get("/:id/edit", function (req, res) {
-    CourseModel.findByPk(req.params.id).then((foundCourse) => {
-        // User.findAll().then((allUsers) => {                                  // RoundModel.findAll().then((allRounds) => {
-            res.render("edit.ejs", {
-                course: foundcourse,
-                // users: allUsers,
-            });
-        });
-    });                                          
-// });
-
-
-router.get("/:id", (req, res) => {
-    CourseModel.findByPk(req.params.id, {
-        include: [{
-            model: User,
-            attributes: ["name"],
-        },
-        ],
-    })
-    .then((course) => {
-        console.log(course)
-        res.render("show.ejs", {
-            course: course,
-        });
-    });
-});
-
-
-//  NEW ROUTE - EMPTY FORM   // 
-// router.get("/new", (req, res) => {
-//     res.render("new.ejs");
-//   });
-
-module.exports = router;                  
+// module.exports = router;                  
 
     
         
