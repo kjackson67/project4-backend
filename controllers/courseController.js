@@ -5,6 +5,10 @@ const router = express.Router();
 const CourseModel = require("../models").Course;
 const UserModel = require("../models").User;
 
+router.get("/new", (req, res) => {
+  res.render("new.ejs");
+});
+
 
 router.get("/", (req, res) => {
     CourseModel.findAll().then((courses) => {                 // *** // CourseModel.findAll().then((allCourseFromDB) => {
@@ -30,10 +34,6 @@ router.get("/:id", (req, res) => {
     });
   });
   
-  router.get("/new", (req, res) => {
-    res.render("new.ejs");
-  });
-
 
 router.get("/:id/edit", function (req, res) {
     CourseModel.findByPk(req.params.id).then((foundCourse) => {
@@ -52,6 +52,16 @@ router.put('/:id', (req, res) => {
     );
 });
 
+router.post("/", (req, res) => {                                    
+    CourseModel.create(req.body).then((newCourse) => { 
+      UserModel.findByPk(req.body.userId).then((user) => {
+        console.log("newCourse", newCourse);
+        console.log("user", user);
+        newCourse.addUser(user)        
+        res.redirect("/course");
+      })
+    });                                                             
+});
 
 router.delete("/:id", (req, res) => {
     CourseModel.destroy({ where: { id: req.params.id } }).then(() => {
@@ -59,16 +69,16 @@ router.delete("/:id", (req, res) => {
     });
   });
   
-  router.put("/:id", (req, res) => {
-    CourseModel.update(req.body, {
-      where: { id: req.params.id },
-      returning: true,
-      plain: true,
-    }).then((updatedCourse) => {
-      console.log(updatedCourse);
-      res.redirect("/course");
-    });
-  });
+  // router.put("/:id", (req, res) => {
+  //   CourseModel.update(req.body, {
+  //     where: { id: req.params.id },
+  //     returning: true,
+  //     plain: true,
+  //   }).then((updatedCourse) => {
+  //     console.log(updatedCourse);
+  //     res.redirect("/course");
+  //   });
+  // });
   
   module.exports = router;
 
