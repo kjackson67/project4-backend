@@ -6,11 +6,14 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <h1>Course Page</h1>
-        <a href="/course/new">Enter a New Course</a>
-        <ul class="course">
-            <% for(let i = 0; i < course.length; i++) { %>
-                <li><a href="/course/<%= course[i].id%>"><%= course[i].courseName %></a></li>
+        <h1>Project 2 Home Page</h1>
+        <nav>
+            <a href="/course/new">Enter a New Course</a>
+        </nav>
+        <ul>
+            <% for(let i=0; i<course.length; i++) { %>
+            <li>
+                <a href="/course/<%=course[i].id%>"> <%=course[i].name%> </a>
                     <!--  ADD DELETE FORM HERE-->
                 <form action="/course/<%= course[i].id %>?_method=DELETE" method="POST">
 				<input type="submit" value="Delete" />

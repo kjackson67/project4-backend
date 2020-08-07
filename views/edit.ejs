@@ -9,10 +9,20 @@
         <h1>Edit Course Page</h1>
             <form action="/course/<%=course.id%>?_method=PUT" method="POST">
 		<!--  NOTE: the form is pre-populated with values for the server-->
-		courseName: <input type="text" name="name" value="<%=course.name%>"/><br/>
-		Location: <input type="text" name="location" value="<%= course.location %>"/><br/>
-		Par: <input type="text" name="par" value="<%= course.par %>"/><br>
-		<input type="submit" value="Edit Course"/>
+		Name: <input type="text" name="name" value="<%=course.name%>"/><br/>
+		Location: <input type="text" name="location" value="<%=course.location%>"/><br/>
+		Par:
+        <input type="text" name="par" value="<%=course.par%>"/><br>
+		<select name="course">
+			<% for ( let i = 0; i < course.length; i++ ) { let selected = ( i == 0
+			) ? "selected" : ""; %>
+			<option value="<%=course[i].id%>" selected
+			  ><%=course[i].name%>
+			</option>
+			<% } %>
+		  </select>
+		<br/>
+		<input type="submit" name="" value="Submit Changes"/>
         </form>
     </body>
 </html>
