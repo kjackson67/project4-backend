@@ -4,6 +4,8 @@ const app = express();
 const methodOverride = require("method-override");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const createError = require("http-errors");
 
 const verifyToken = (req, res, next) => {
   let token = req.cookies.jwt;
@@ -22,14 +24,15 @@ const verifyToken = (req, res, next) => {
     next();
   });
 };
+app.use(cors());
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
 // HOMEPAGE
 app.get("/", (req, res) => {
-  res.render("users/index.ejs");
+  res.json({ message: "express4 api app is working" });
 });
 
 app.use("/auth", require("./controllers/authController.js"));

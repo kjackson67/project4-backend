@@ -5,32 +5,31 @@ const router = express.Router();
 const CourseModel = require("../models").Course;
 const UserModel = require("../models").User;
 
-router.get("/new", (req, res) => {
-  res.render("new.ejs");
-});
+// router.get("/new", (req, res) => {
+//   res.render("new.ejs");
+// });
 
-
+// Get ALL COURSES - PROJ4 //
 router.get("/", (req, res) => {
     CourseModel.findAll().then((courses) => {                 // *** // CourseModel.findAll().then((allCourseFromDB) => {
-        res.render("index.ejs", {
-        course: courses                                        
+        res.json( {
+        courses                                        
         });
     });
 });
 
+
 router.get("/:id", (req, res) => {
     CourseModel.findByPk(req.params.id, {
-        include: [{
-            model: UserModel,
-            attributes: ["name"],
-        },
-        ],
+        // include: [{ model: UserModel, attributes: ["id"],
+        // },
+        // ],
     })
-    .then((course) => {
-        console.log(course)
-        res.render("show.ejs", {
-            course: course,
-        });
+    .then((courses) => {
+        console.log(courses)
+        res.json( {
+        courses,
+       });
     });
   });
   
