@@ -9,6 +9,10 @@ module.exports = {
           courseName: "TPC Deere Run",
           location: "Silvis, IL",
           par: 72,
+          // tee: "Blue/White", 
+          // yardage: 6269,
+          // rating: 71.2,
+          // slope: 133,
       },
       {
           courseName: "Glynns Creek",

@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       Course.belongsToMany(models.User, {
         through: "UserCourse",
         foreignKey: "courseId",
-        otherKey: "userId"
+        otherKey: "userId",
       });
     }
   };
@@ -22,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     courseName: DataTypes.STRING,
     location: DataTypes.STRING,
     par: DataTypes.INTEGER,
+    // tee: DataTypes.INTEGER,
+    // yardage: DataTypes.INTEGER,
+    // rating: DataTypes.INTEGER,
+    // slope: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Course',

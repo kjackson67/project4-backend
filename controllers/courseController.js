@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
     });
 });
 
-
+// GET INDIVIDUAL COURSE - PROJ4 //
 router.get("/:id", (req, res) => {
     CourseModel.findByPk(req.params.id, {
         // include: [{ model: UserModel, attributes: ["id"],
@@ -51,6 +51,7 @@ router.put('/:id', (req, res) => {
     );
 });
 
+// CREATE NEW COURSE - PROJ4 //
 router.post("/", (req, res) => {                                    
     CourseModel.create(req.body).then((newCourse) => { 
       UserModel.findByPk(req.body.userId).then((user) => {
@@ -62,6 +63,7 @@ router.post("/", (req, res) => {
     });                                                             
 });
 
+  // DELETE A ARTIST PROJ4//
 router.delete("/:id", (req, res) => {
     CourseModel.destroy({ where: { id: req.params.id } }).then(() => {
       res.redirect("/course");

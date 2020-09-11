@@ -1,6 +1,6 @@
 <!-- Project Overview
 ** Project Description **
-This is my second project - Using postgres/sequelize/associations to create an app for keeping track of golf scores on courses people have played.  This will let a user sign-up or log in to be able to either add a course or choose a course they've played and enter the date and score they shot on that date.  The user will be able to continuously add new scores to same course or enter a new course to add their score.
+This is the final project - our "Capstone Project" Using postgres/sequelize/associations to create an app for keeping track of golf scores on courses people have played.  This will let a user sign-up or log in to be able to either add a course or choose a course they've played and enter the date and score they shot on that date.  The user will be able to continuously add new scores to same course or enter a new course to add their score.
 There may be many players for a course AND a course will be able to have many players.  
 
 Goal for this app is to make it easy for a user to be able to sign-up or register (As a new user) and keep track of the courses played, when (dates played) and users score so it will make it easier to keep track of handicap.
