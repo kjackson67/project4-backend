@@ -1,8 +1,5 @@
 'use strict';
 
-const { INTEGER } = require("sequelize/types");
-const { sequelize } = require("../models");
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Courses', {
@@ -21,18 +18,18 @@ module.exports = {
       par: {
         type: Sequelize.INTEGER,
       },
-      // tee: {
-      //   type: Sequelize.STRING,
-      // },
-      // yardage: {
-      //   type: Sequelize.INTEGER,
-      // },
-      // rating: {
-      //   type: Sequelize.INTEGER,
-      // },
-      // slope: {
-      //   type: Sequelize.INTEGER,
-      // },
+      tee: {
+        type: Sequelize.STRING,
+      },
+      yardage: {
+        type: Sequelize.INTEGER,
+      },
+      rating: {
+        type: Sequelize.INTEGER,
+      },
+      slope: {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
