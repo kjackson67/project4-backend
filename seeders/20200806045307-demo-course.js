@@ -17,7 +17,7 @@ module.exports = {
       {
           courseName: "Glynns Creek",
           location: "Scott County Park, IA",
-          par: 72,          
+          par: 72, 
       },
       {
           courseName: "Palmer Hills",
