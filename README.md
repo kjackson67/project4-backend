@@ -1,15 +1,15 @@
-<!-- Project Overview
+ Project Overview 
 ** Project Description **
-This is the final project - our "Capstone Project" Using postgres/sequelize/associations to create an app for keeping track of golf scores on courses people have played.  This will let a user sign-up or log in to be able to either add a course or choose a course they've played and enter the date and score they shot on that date.  The user will be able to continuously add new scores to same course or enter a new course to add their score.
-There may be many players for a course AND a course will be able to have many players.  
+This is the final project - our "Capstone Project" utilizing both Node/Express backend with React frontend apps.  Our app will let a user be able to pull up golf courses they'd be interested in playing and if the course a user is looking for is not there, the user will be able to add their favorite course(s). The user will be able to look at the golf courses par, yardage and handicap ratings to get an idea of how easy or difficult the course plays.  Just an easy to use app that will allow a user look up golf courses quickly. -->
 
-Goal for this app is to make it easy for a user to be able to sign-up or register (As a new user) and keep track of the courses played, when (dates played) and users score so it will make it easier to keep track of handicap.
 
 **  USER STORIES  **
-As a user, I want to be able to 'Sign Up' to the app so that I can add or see my course(s) I play.
-As a user, I want to be able to 'Log In' to enter my round for the date played and enter my score.
-As a user, i want to be able to see my past golf scores.
-As a user, I want to be able to see what past dates I played and on what courses.
+As a user, I want to be able to 'look up' local or national golf courses that I'd be interested to play.
+As a user, I want to be able to look up a golf courses main score card information so that I can get an idea of the courses difficulty. 
+As a user, I want to be able to add a golf course if it is not listed so that I can use it for future use.
+As a user, I want to be able to delete a course if it is has not been played for some time so that I can keep my play list updated.
+As a user, I want to edit a golf course if the golf course has been changed or updated so that I can keep the course information accurate.
+
 
 * Stretch Goal *
 I would like to make this app able to apply a HDCP recording feature, so that players can keep track of not only their scores but be able to compare against their friends in a "friendly" competitive challenge as well.
@@ -17,10 +17,12 @@ I would like to make this app able to apply a HDCP recording feature, so that pl
       // Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
 
 ** Project Links **
-github repo
-deployment
+Github repo
+Heroku deployment to production
+
 
 ** Wireframes **
+![Data FLow]()
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe.
 wireframes
 react architecture
@@ -91,57 +93,11 @@ RESOLUTION: Missing comma after first object in sources {} object
 
 
 
+<!-- to create an app for keeping track of golf scores on courses people have played.  This will let a user sign-up or log in to be able to either add a course or choose a course they've played and enter the date and score they shot on that date.  The user will be able to continuously add new scores to same course or enter a new course to add their score.
 
 
+Goal for this app is to make it easy for a user to be able to sign-up or register (As a new user) and keep track of the courses played, when (dates played) and users score so it will make it easier to keep track of handicap.
 
-
-
-
- -->
-
-
-
-<!-- ## Deere Project 2 Starter Code
-
-## Set Up
-
-1. Fork and clone this repo
-1. `cd` into the folder and run `npm install`
-1. In the root of your app, `touch .env` and add:
-
-   ```bash
-   PORT=3000
-   JWT_SECRET=pancakes
-   ```
-
-1. Check out your `config/config.json` file. You'll need to create a database called `project2_Korby`
-1. Sequelize is included in the app. You have a `User` model. Run `db:migrate` to create the `Users` table in your database.
-1. Run `nodemon` and go to the Homepage: `localhost:3000/`
-
-![](https://i.imgur.com/uuhrOxQ.png)
-
-<br>
-
-## Routes
-
-You have the following routes available.
-
-#### controllers/authController.js
-
-- GET and POST `localhost:3000/auth/signup`
-- GET and POST `localhost:3000/auth/login`
-- GET `localhost:3000/auth/logout`
-
-#### controllers/usersController.js
-
-- GET `localhost:3000/profile/:id`
-
-<br>
-
-## Additional Resources
-
-- [Fruit App Solution](https://git.generalassemb.ly/jdr-0622/fruit-app-in-class)
-- [Pokemon Express Solution](https://git.generalassemb.ly/jdr-0622/pokemon-express-sequelize6)
-- [Google Routes Spreadsheet](https://docs.google.com/spreadsheets/d/14-LHKXLtEkp_vKEz3qSKjREnrmSyzQ9fimTlmrPsZsQ/edit#gid=0)
-- [JSON Web Tokens](https://jwt.io/) -->
-
+to enter my round for the date played and enter my score.
+As a user, i want to be able to see my past golf scores.
+As a user, I want to be able to see what past dates I played and on what courses. -->

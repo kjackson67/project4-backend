@@ -63,7 +63,7 @@ router.post("/", (req, res) => {
     });                                                             
 });
 
-  // DELETE A ARTIST PROJ4//
+  // DELETE A COURSE PROJ4//
 router.delete("/:id", (req, res) => {
     CourseModel.destroy({ where: { id: req.params.id } }).then(() => {
       res.redirect("/course");

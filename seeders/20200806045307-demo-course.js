@@ -40,7 +40,16 @@ module.exports = {
           yardage: 6394,
           rating: 70.2,
           slope: 118,
-        },
+      },
+      {
+        courseName: "Waverly Golf Course",
+        location: "Waverly, IA",
+        par: 70,
+        tee: "White",
+        yardage: 5602,
+        rating: 67.0,
+        slope: 108, 
+      },
   ], {});
 },
   down: async (queryInterface, Sequelize) => {
