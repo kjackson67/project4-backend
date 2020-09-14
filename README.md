@@ -1,9 +1,10 @@
- Project Overview 
-** Project Description **
+ # ** PROJECT OVERVIEW ** #
+
+# Project Description 
 This is the final project - our "Capstone Project" utilizing both Node/Express backend with React frontend apps.  Our app will let a user be able to pull up golf courses they'd be interested in playing and if the course a user is looking for is not there, the user will be able to add their favorite course(s). The user will be able to look at the golf courses par, yardage and handicap ratings to get an idea of how easy or difficult the course plays.  Just an easy to use app that will allow a user look up golf courses quickly. -->
 
 
-**  USER STORIES  **
+# USER STORIES
 As a user, I want to be able to 'look up' local or national golf courses that I'd be interested to play.
 As a user, I want to be able to look up a golf courses main score card information so that I can get an idea of the courses difficulty. 
 As a user, I want to be able to add a golf course if it is not listed so that I can use it for future use.
@@ -11,37 +12,30 @@ As a user, I want to be able to delete a course if it is has not been played for
 As a user, I want to edit a golf course if the golf course has been changed or updated so that I can keep the course information accurate.
 
 
-* Stretch Goal *
-I would like to make this app able to apply a HDCP recording feature, so that players can keep track of not only their scores but be able to compare against their friends in a "friendly" competitive challenge as well.
+# Stretch Goal*
+We would like to make this app able to apply a HDCP recording feature, so that players can keep track of not only their scores but be able to compare against their friends in a "friendly" competitive challenge as well.
 
       // Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
 
-** Project Links **
+# Project Links 
 Github repo
 Heroku deployment to production
+Project2
 
 
-** Wireframes **
-![Data FLow]()
-Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe.
+# Wireframes 
+We used/created a wireframe data flow to show a snapshot of what we wanted product to look like flowing from backend into the frontend utilizing a navigation bar to home page and details page.
+<!-- Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe.
 wireframes
 react architecture
-Define the the React components and the architectural design of your app.
+Define the the React components and the architectural design of your app. -->
 
-** MVP/PostMVP - 5min **
-The functionality will then be divided into two separate lists: MPV and PostMVP. Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.
 
-MVP EXAMPLE
-Find and use external api
-Render data on page
-Allow user to interact with the page
-
-PostMVP EXAMPLE
-Add localStorage or firebase for storage
-
-** Components **
+# TECHNOLOGIES UTILIZED 
+Google, StackOverflow, W3schools.com, Postman
+<!-- ** Components **
 Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
-Based on the initial logic defined in the previous sections try and breakdown the logic further into stateless/stateful components.
+Based on the initial logic defined in the previous sections try and breakdown the logic further into stateless/stateful components. -->
 
 Component	Description
 App	This will make the initial data pull and include React Router
