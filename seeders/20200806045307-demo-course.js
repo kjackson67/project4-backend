@@ -50,6 +50,42 @@ module.exports = {
         rating: 67.0,
         slope: 108, 
       },
+      {
+        courseName: "Fillmore Fairways",
+        location: "Cascade, IA",
+        par: 36,
+        tee: "Back",
+        yardage: 3195,
+        rating: 35.1,
+        slope: 114,
+      },
+      {
+        courseName: "Beaver Dam CC",
+        location: "Beaver Dam, WI",
+        par: 72,
+        tee: "Gold",
+        yardage: 5222,
+        rating: 65.9,
+        slope: 110,
+      },
+      // {
+      //   courseName:
+      //   location:
+      //   par:
+      //   tee:
+      //   yardage:
+      //   rating:
+      //   slope:
+      // },
+      // {
+      //   courseName:
+      //   location:
+      //   par:
+      //   tee:
+      //   yardage:
+      //   rating:
+      //   slope:
+      // },
   ], {});
 },
   down: async (queryInterface, Sequelize) => {
