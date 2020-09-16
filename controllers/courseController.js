@@ -54,12 +54,12 @@ router.put('/:id', (req, res) => {
 // CREATE NEW COURSE - PROJ4 //
 router.post("/", (req, res) => {                                    
     CourseModel.create(req.body).then((newCourse) => { 
-      UserModel.findByPk(req.body.userId).then((user) => {
+      // UserModel.findByPk(req.body.userId).then((user) => {
         console.log("newCourse", newCourse);
-        console.log("user", user);
-        newCourse.addUser(user)        
+        // console.log("user", user);
+        // newCourse.addUser(user)        
         res.json("/course");
-      })
+      // })
     });                                                             
 });
 
