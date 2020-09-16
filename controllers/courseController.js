@@ -11,7 +11,7 @@ const UserModel = require("../models").User;
 
 // Get ALL COURSES - PROJ4 //
 router.get("/", (req, res) => {
-    CourseModel.findAll().then((courses) => {                 // *** // CourseModel.findAll().then((allCourseFromDB) => {
+    CourseModel.findAll().then((courses) => {
         res.json( {
         courses                                        
         });
@@ -36,7 +36,7 @@ router.get("/:id", (req, res) => {
 
 router.get("/:id/edit", function (req, res) {
     CourseModel.findByPk(req.params.id).then((foundCourse) => {
-      res.render("edit.ejs", {                                            // RoundModel.findAll().then((allRounds) => {
+      res.render("edit.ejs", {                        //res.json                    // RoundModel.findAll().then((allRounds) => {
         course: foundCourse,
         });
     });                                          
@@ -46,7 +46,7 @@ router.get("/:id/edit", function (req, res) {
 router.put('/:id', (req, res) => {
     CourseModel.update(req.body, { where: { id: req.params.id } })
   .then((updatedCourse) => {
-        res.redirect("/course");
+        res.json("/course");
         }
     );
 });
@@ -58,7 +58,7 @@ router.post("/", (req, res) => {
         console.log("newCourse", newCourse);
         console.log("user", user);
         newCourse.addUser(user)        
-        res.redirect("/course");
+        res.json("/course");
       })
     });                                                             
 });
@@ -66,7 +66,7 @@ router.post("/", (req, res) => {
   // DELETE A COURSE PROJ4//
 router.delete("/:id", (req, res) => {
     CourseModel.destroy({ where: { id: req.params.id } }).then(() => {
-      res.redirect("/course");
+      res.json("/course");
     });
   });
   

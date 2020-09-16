@@ -68,24 +68,6 @@ module.exports = {
         rating: 65.9,
         slope: 110,
       },
-      // {
-      //   courseName:
-      //   location:
-      //   par:
-      //   tee:
-      //   yardage:
-      //   rating:
-      //   slope:
-      // },
-      // {
-      //   courseName:
-      //   location:
-      //   par:
-      //   tee:
-      //   yardage:
-      //   rating:
-      //   slope:
-      // },
   ], {});
 },
   down: async (queryInterface, Sequelize) => {
