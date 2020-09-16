@@ -46,7 +46,7 @@ router.get("/:id/edit", function (req, res) {
 router.put('/:id', (req, res) => {
     CourseModel.update(req.body, { where: { id: req.params.id } })
   .then((updatedCourse) => {
-        res.json("/course");
+        res.json({updatedCourse});
         }
     );
 });
@@ -58,7 +58,7 @@ router.post("/", (req, res) => {
         console.log("newCourse", newCourse);
         // console.log("user", user);
         // newCourse.addUser(user)        
-        res.json("/course");
+        res.json({newCourse});
       // })
     });                                                             
 });
